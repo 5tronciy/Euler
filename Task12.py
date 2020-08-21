@@ -1,13 +1,21 @@
 import time
 start_time = time.time()
 
+def is_square (number):
+    sq = number**0.5
+    if sq - round(sq) == 0:
+        return True
+
 def factors (number):
     k = 2
-    for i in range (2, int(number/2+1)):
+    for i in range (2, int(number**0.5)):
         if number % i == 0:
-            k += 1
+            k += 2
         i += 1
-    return k
+    if is_square(number):
+        return k - 1
+    else:
+        return k
 
 n = 1
 limit = 500
